@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="clock.css"/>
+	</head>
+	<body>
+		<canvas id="canve" width="600" height="600">
+		  <canvas id="canveout" width="600" height="600"></canvas>	
+			
+		</canvas>
+		
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canve");
+		var context = canvas.getContext("2d");
+		//外圆及边框
+		context.beginPath();
+		context.arc(300,300,203,0,Math.PI*2,true);
+		context.closePath();
+	    context.fillStyle = "#000000";
+        context.fill();
+        
+        
+		context.beginPath();
+		context.arc(300,300,200,0,Math.PI*2,true);
+		context.closePath();
+	    context.fillStyle = "white";
+        context.fill();
+//		context.fillStyle = "whitesmoke";
+//		context.fill();
+		//水平线条
+	    context.beginPath();
+	    context.moveTo(100,300)
+		context.lineTo(500,300);
+		context.closePath();
+		context.stroke();
+		//垂直
+        context.beginPath();
+	    context.moveTo(300,100)
+		context.lineTo(300,500);
+		context.closePath();
+		context.stroke();
+		//5,分
+		 context.beginPath();
+	    context.moveTo(400,127)
+		context.lineTo(200,473);
+		context.closePath();
+		context.stroke();
+		//10,分
+		 context.beginPath();
+	    context.moveTo(473,200)
+		context.lineTo(127,400);
+		context.closePath();
+		context.stroke();
+		//20,分
+		 context.beginPath();
+	    context.moveTo(473,400)
+		context.lineTo(127,200);
+		context.closePath();
+		context.stroke();
+		//25,分
+		 context.beginPath();
+	    context.moveTo(400,473)
+		context.lineTo(200,127);
+		context.closePath();
+		context.stroke();
+		
+        //内圆及边框
+	    context.beginPath();
+		context.arc(300,300,190,0,Math.PI*2,true);
+		context.closePath();
+		context.fillStyle = "black";
+		context.fill();
+		
+		context.beginPath();
+		context.arc(300,300,187,0,Math.PI*2,true);
+		context.closePath();
+		context.fillStyle = "white";
+		context.fill();
+		
+		 var imgObj12 = new Image();
+         imgObj12.src = "imgs/QQ截图20171009101918.png";
+        //待图片加载完后，将其显示在canvas上
+         imgObj12.onload = function(){
+                context.drawImage(this, 278,118);//this即是imgObj,保持图片的原始大小：
+                //ctx.drawImage(this, 0, 0,1024,768);//改变图片的大小到1024*768
+            }
+		
+		 var imgObj1 = new Image();
+         imgObj1.src = "imgs/QQ截图20171009102006.png";
+        //待图片加载完后，将其显示在canvas上
+         imgObj1.onload = function(){
+                context.drawImage(this, 349,142);//this即是imgObj,保持图片的原始大小：
+                //ctx.drawImage(this, 0, 0,1024,768);//改变图片的大小到1024*768
+            }
+		var imgObj2= new Image();
+         imgObj2.src = "imgs/QQ截图20171009102022.png";
+        //待图片加载完后，将其显示在canvas上
+         imgObj2.onload = function(){
+                context.drawImage(this, 405,202);//this即是imgObj,保持图片的原始大小：
+                //ctx.drawImage(this, 0, 0,1024,768);//改变图片的大小到1024*768
+            }
+         
+		var imgObj3= new Image();
+         imgObj3.src = "imgs/QQ截图20171009102036.png";
+        //待图片加载完后，将其显示在canvas上
+         imgObj3.onload = function(){
+                context.drawImage(this, 432,280);//this即是imgObj,保持图片的原始大小：
+                //ctx.drawImage(this, 0, 0,1024,768);//改变图片的大小到1024*768
+            }
+		var imgObj4= new Image();
+         imgObj4.src = "imgs/QQ截图20171009102120.png";
+        //待图片加载完后，将其显示在canvas上
+         imgObj4.onload = function(){
+                context.drawImage(this, 411,358);//this即是imgObj,保持图片的原始大小：
+                //ctx.drawImage(this, 0, 0,1024,768);//改变图片的大小到1024*768
+            }
+		var imgObj5= new Image();
+         imgObj5.src = "imgs/QQ截图20171009102248.png";
+        //待图片加载完后，将其显示在canvas上
+         imgObj5.onload = function(){
+                context.drawImage(this, 369,420);//this即是imgObj,保持图片的原始大小：
+                //ctx.drawImage(this, 0, 0,1024,768);//改变图片的大小到1024*768
+            }
+         
+         var imgObj6= new Image();
+         imgObj6.src = "imgs/QQ截图20171009102307.png";
+        //待图片加载完后，将其显示在canvas上
+         imgObj6.onload = function(){
+                context.drawImage(this, 280,434);//this即是imgObj,保持图片的原始大小：
+                //ctx.drawImage(this, 0, 0,1024,768);//改变图片的大小到1024*768
+            }
+         var imgObj7= new Image();
+         imgObj7.src = "imgs/QQ截图20171009102414.png";
+        //待图片加载完后，将其显示在canvas上
+         imgObj7.onload = function(){
+                context.drawImage(this, 200,414);//this即是imgObj,保持图片的原始大小：
+                //ctx.drawImage(this, 0, 0,1024,768);//改变图片的大小到1024*768
+            }
+           var imgObj8= new Image();
+         imgObj8.src = "imgs/QQ截图20171009111847.png";
+        //待图片加载完后，将其显示在canvas上
+         imgObj8.onload = function(){
+                context.drawImage(this, 146,342);//this即是imgObj,保持图片的原始大小：
+                //ctx.drawImage(this, 0, 0,1024,768);//改变图片的大小到1024*768
+            }
+		  var imgObj9= new Image();
+         imgObj9.src="imgs/QQ截图20171009102857.png";
+        //待图片加载完后，将其显示在canvas上
+         imgObj9.onload = function(){
+                context.drawImage(this, 120,280);//this即是imgObj,保持图片的原始大小：
+                //ctx.drawImage(this, 0, 0,1024,768);//改变图片的大小到1024*768
+            }
+			  var imgObj10= new Image();
+         imgObj10.src="imgs/QQ截图20171009102548.png";
+        //待图片加载完后，将其显示在canvas上
+         imgObj10.onload = function(){
+                context.drawImage(this, 140,198);//this即是imgObj,保持图片的原始大小：
+                //ctx.drawImage(this, 0, 0,1024,768);//改变图片的大小到1024*768
+            }
+	       var imgObj11= new Image();
+         imgObj11.src="imgs/QQ截图20171009102606.png";
+        //待图片加载完后，将其显示在canvas上
+         imgObj11.onload = function(){
+                context.drawImage(this, 200,140);//this即是imgObj,保持图片的原始大小：
+                //ctx.drawImage(this, 0, 0,1024,768);//改变图片的大小到1024*768
+            }
+		
+		//分针
+		context.lineWidth = 6; 
+		context.beginPath();
+	    context.moveTo(300,124)
+		context.lineTo(300,350);
+		context.closePath();
+		context.stroke();
+		//时针
+		context.lineWidth = 8; 
+		context.beginPath();
+	    context.moveTo(250,300);
+		context.lineTo(390,300);
+		context.closePath();
+		context.stroke();
+		//秒针
+		
+		
+		
+		
+		//秒针
+		var canvas = document.getElementById("canve");
+		var context1 = canvas.getContext("2d");
+		context.lineWidth = 4; 
+		context.beginPath();
+	    context.moveTo(172,172);
+		context.lineTo(350,350);
+		context.closePath();
+		context.stroke();
+		
+		//轴心
+		context.beginPath();
+		context.arc(300,300,4,0,Math.PI*2,true);
+		context.closePath();
+		context.fillStyle = "white";
+		context.fill();
+		
+		
+	</script>
+	
+	
+</html>

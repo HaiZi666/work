@@ -1,0 +1,30 @@
+html, body, p, h1, h2, h3, h4, h5, h6, ul, dl, dd, td, input, fieldset, textarea, option {
+  margin: 0;
+  padding: 0; }
+
+i{
+  font-style:normal;
+}
+li {
+  list-style: none; }
+
+h1, h2, h3, h4, h5, h6, b, strong {
+  font-weight: 100; }
+ 
+
+@keyframes cd-rotate {
+   from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+#canveout{
+	animation: cd-rotate 4s linear infinite;
+}
+
+
+
+

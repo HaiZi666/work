@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/player.css"/>
+		<script type="text/javascript" src="js/jquery.js" ></script>
+	</head>
+	<body>
+		<div class="playertop">
+			<div class="playerleft">
+				<div class="cdin">
+					<div class="cdout">
+						<img src="imgs/img.jpg"/>
+					</div>
+					
+				</div>
+				<div class="playerrod">
+					<img src="imgs/cd_tou.png"/>
+				</div>			
+				
+			</div>
+			
+			<div class="playerright">
+				<div class="songname">
+					<h1>演员</h1>	
+					 <span id="author">
+					 	薛之谦
+					 </span>
+					 <span id="Album">
+					 	专辑：绅士
+					 </span>
+				</div>
+				<div class="control">
+					<div class="controlleft">
+						<span id="pre">
+						   &#xe501;
+						</span>
+						<span id="stop">
+							&#xe61a;
+						</span>
+						<span id="play">
+							&#xe62f;
+						</span>
+						<span id="next">
+							&#xe64c;
+						</span>
+					</div>
+					
+					
+					
+					
+					<div class="controlright">
+						<span id="order">
+							&#xe672;
+						</span>
+						<span id="loop">
+							&#xe624;
+						</span>
+						<span id="volume">
+							&#xe771;
+						</span>
+					</div>
+					
+					
+				</div>
+				<div class="time">
+					<i class="hour1">00</i>:<i class="min1">00</i>/<i class="hour2">04</i>:<i class="min2">21</i>
+					<p class="progres-bar"></p>
+					<p class="change barbg progres-bar" ></p>
+					
+				</div>
+				
+			</div>
+			
+			
+		</div>
+		
+		<div class="playerbottom">
+			<ul>
+				<li>
+					<h1>认真的雪</h1>
+					<b>薛之谦</b>
+					<span id="">
+						专辑：绅士
+					</span>
+				</li>
+				<li>
+					<h1>绅士</h1>
+					<b>薛之谦</b>
+					<span id="">
+						专辑：绅士
+					</span>
+				</li>
+				<li>
+					<h1>演员</h1>
+					<b>薛之谦</b>
+					<span id="">
+						专辑：绅士
+					</span>
+				</li>
+				<li>
+					<h1>丑八怪</h1>
+					<b>薛之谦</b>
+					<span id="">
+						专辑：绅士
+					</span>
+				</li>
+			</ul>
+		</div>
+		
+		
+        <audio src="music/演员 - 薛之谦.mp3" type="audio/mp3" controls="controls" >
+        	
+	    </audio>
+		
+	</body>
+	
+	<script type="text/javascript">
+		//播放按钮
+		var stop=$("#stop");
+		window.tt;
+		stop.click(function(tt){
+			//动画开始
+			animatecontral("star");
+		})
+		//暂停按妞
+		var play=$("#play");
+		play.click(function (tt){
+			//动画停止
+			animatecontral("stop");
+		})
+        //下一首
+		 var i=2;
+		$("#next").click( function  (tt) {
+			contral(tt);
+		} );
+		
+		//上一首
+		$("#pre").click( function  (tt) {
+			contral(tt);
+		} );
+		//随机播放
+        $("#order").click( function  (tt) {
+			contral(tt);
+		} );
+		
+				
+		//动画控制，开始和停止函数
+		function animatecontral(being) {
+			if(being=="star"){
+				//影藏暂停按钮，显示播放
+				$("#stop").css("display","none");
+			    $("#play").css("display","inline");
+			    //播放音乐
+			     $("audio").get(0).play();
+			     //进度条改变
+			     $(".barbg").css("animation","progresbar 261s linear ");
+			    
+			    
+			    //旋转以及杆动
+				$(".cdin").css("animation","cd-rotate 4s linear infinite");
+				$(".playerrod img").css("transform","rotate(5deg)");
+			 //计时
+			window.tt=setInterval(function () {
+				if(+$(".min1").html()<=8){
+					
+					$(".min1").html("0"+(+$(".min1").html()+1));
+				}else if(+$(".min1").html()>=9&&+$(".min1").html()<59){
+					$(".min1").html((+$(".min1").html()+1));
+					
+				}else{
+					$(".hour1").html("0"+(+$(".hour1").html()+1));
+					$(".min1").html("00");
+				}
+				
+			},1000)
+			}else if(being=="stop"){
+				//影藏暂停按钮，显示播放
+			    $("#play").css("display","none");
+			    $("#stop").css("display","inline");
+			    //暂停音乐
+			    $("audio").get(0).pause();
+			    //进度条改变
+			    $(".barbg").css("animation-play-state","paused");
+			  
+			    //旋转以及杆动
+				$(".cdin").css("animation-play-state","paused")
+			    $(".playerrod img").css("transform","rotate(-18deg)")
+			   //清楚计时器
+			clearInterval(window.tt);
+			
+			}
+			
+		}
+		
+		//控制按妞函数
+	   function contral(tt){
+				   //清楚计时器
+            animatecontral("stop");
+			$(".barbg").css("animation-play-state","paused");
+			
+			var songs=[{
+			name:"认真的雪",
+			time:"04-21",
+			scr:"music/认真的雪 - 薛之谦.mp3"
+		},
+		{
+			name:"绅士",
+			time:"04-51",
+			scr:"music/绅士 - 薛之谦.mp3"
+		},
+		{
+			name:"演员",
+			time:"04-21",
+			scr:"music/演员 - 薛之谦.mp3"
+		},
+		{
+			name:"丑八怪",
+			time:"04-13",
+			scr:"music/丑八怪 - 薛之谦.mp3"
+		}
+		
+		];
+		
+			var m=randomInt(0,4);
+			while (i==m){
+				m=randomInt(0,4);
+			}
+			i=m;
+			//改变曲目值
+			$(".songname h1").html(songs[i].name)
+		    //改变时间
+		    $(".hour1").html("00")
+            $(".min1").html("00")
+            $(".hour2").html(songs[i].time.split("-")[0])
+            $(".min2").html(songs[i].time.split("-")[1])
+            //进度条归零
+           $(".change").addClass("last")
+           
+           //$(".change").addClass("barbg progres-bar")
+           //播放开始
+            $("audio").attr("src",songs[i].scr);
+            
+            animatecontral("star");
+           
+		}
+		
+		//随机生成一个min-max之间的数字
+		function randomInt(min, max) {
+			return Math.round(Math.random() * (max - min)) + min;
+		}
+		
+				
+				
+		
+		
+		
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>
